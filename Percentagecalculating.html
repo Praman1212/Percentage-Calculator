@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Percentage Calculator</title>
+</head>
+<body>
+    <h1>Student Percentage Calculator</h1>
+    <form action="" class="form">
+        <div>
+            Math :
+            <input type="text" id="sub1">
+        </div>
+        <div>
+            Social :
+            <input type="text" id="sub2">
+        </div>
+        <div>
+            Nepali :
+            <input type="text" id="sub3">
+        </div>
+        <div>
+            English :
+            <input type="text" id="sub4">
+        </div>
+        <div>
+            Science :
+            <input type="text" id="sub5">
+        </div>
+        <button id="btn">Submit</button>
+    </form>
+    <div class="result">
+        <h2>Result is....</h2>
+        <h3 id="post">
+            Please Wait
+        </h3>
+    </div>
+</body>
+<script>
+
+    let btn = document.getElementById('btn')
+
+    btn.addEventListener("click",(e)=>{
+
+    let sub1 = document.getElementById("sub1").value;
+
+    let sub2 = document.getElementById('sub2').value;
+
+    let sub3 = document.getElementById('sub3').value;
+
+    let sub4 = document.getElementById('sub4').value;
+
+    let sub5 = document.getElementById('sub5').value;
+    
+    e.preventDefault();
+
+    let total = calculate(sub1,sub2,sub3,sub4,sub5);
+    if (total ===0){
+    
+    alert(total);
+
+    }
+
+    let Percentage = total/5;
+
+    let result ; 
+    if(Percentage > 45){
+        result = "pass";
+    } else{
+        result = 'fail';
+    }
+    let dekhaune = document.getElementById('post')
+    dekhaune.innerHTML = `${Percentage}`;
+})
+    function calculate(sub1,sub2,sub3,sub4,sub5){
+        let a = parseFloat(sub1);
+        let b = parseFloat(sub2);
+        let c = parseFloat(sub3);
+        let d = parseFloat(sub4);
+        let e = parseFloat(sub5);
+        let total = eval(a+b+c+d+e);
+        return total ;
+    }
+</script>
+</html>
